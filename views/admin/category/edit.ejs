@@ -1,0 +1,72 @@
+<!-- head -->
+<%- include("../../partials/header.ejs") %>
+<!-- navbar -->
+<%- include("../../partials/navbar.ejs") %>
+<!-- siderbar -->
+<%- include("../../partials/sidebar.ejs") %>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Category</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/category">Category</a></li>
+            <li class="breadcrumb-item active">Create</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Change Category Form : <%= category.name %></h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form action="/category/edit/<%= category._id %>?_method=PUT" method="POST">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="name">Category Name</label>
+                  <input
+                  name="name"
+                    type="text"
+                    class="form-control"
+                    value="<%= category.name %>"
+                    id="name"
+                    placeholder="Input category"
+                    required
+                  />
+                </div>
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Save Category</button>
+              </div>
+            </form>
+            
+            
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<%- include("../../partials/footer.ejs") %>
+<!-- javascript -->
+<%- include("../../partials/js.ejs") %>
