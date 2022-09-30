@@ -27,12 +27,6 @@ const voucherSchema = mongoose.Schema({
       ref: "Nominal",
     },
   ],
-  payments: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Payment",
-    },
-  ],
   price: {
     type: Number,
     default: 0,

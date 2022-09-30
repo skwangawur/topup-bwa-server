@@ -30,15 +30,15 @@ module.exports = {
       const voucher = await Voucher.findOne({ _id: id })
         .populate("category")
         .populate("nominals")
-        .populate("payments")
         .populate("user", "_id name phoneNumber");
-
+      const payment = await Payment.find().populate("banks");
+      console.log(voucher);
       if (!voucher) {
         console.log("halo");
         return res.status(404).json({ message: "voucher not found" });
       }
 
-      res.status(200).json({ data: voucher });
+      res.status(200).json({ data: { voucher, payment } });
     } catch (error) {
       res
         .status(200)
